@@ -10,36 +10,68 @@
     <div class="container align-content-center">
         <h1 style="margin: 2%; text-align: center;">Add Car</h1>
         <form method="post" enctype="multipart/form-data">
-            <div class="d-flex justify-content-around">
-                <div class="form-group">
+            <div class="container grid-2-cols">
+                <div class="form-group w-75">
                     <label asp-for="Make"></label>
                     <input asp-for="Make" class="form-control" />
                     <span asp-validation-for="Make" class="text-danger"></span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group w-75">
                     <label asp-for="Model"></label>
                     <input asp-for="Model" class="form-control" />
                     <span asp-validation-for="Model" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group">
-                <label asp-for="HorsePower"></label>
-                <input asp-for="HorsePower" class="form-control" />
-                <span asp-validation-for="HorsePower" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Year"></label>
-                <input asp-for="Year" class="form-control" />
-                <span asp-validation-for="Year" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="d-flex justify-content-around">
 
+            <div class="container grid-2-cols">
+
+                <div class="container mt-3">
+                    <div class="form-group w-75 auto-margin">
+                        <label asp-for="HorsePower"></label>
+                        <input asp-for="HorsePower" class="form-control" />
+                        <span asp-validation-for="HorsePower" class="text-danger"></span>
+                    </div>
+                    <div class="form-group w-75 auto-margin">
+                        <label asp-for="Year"></label>
+                        <input asp-for="Year" class="form-control" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                    <div class="form-group w-75 auto-margin">
+                        <label asp-for="Description"></label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        @*<input asp-for="Description" class="form-control" />*@
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="container mt-3">
+                    <div class="form-group w-75 auto-margin">
+                        <label asp-for="Transmission">Transmisson</label>
+                        @Html.DropDownListFor(m => m.Transmission, Html.GetEnumSelectList<Transmission>(),
+                    "Select transmission",
+                    new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group w-75 auto-margin">
+                        <label asp-for="BodyType">Body Type</label>
+                        @Html.DropDownListFor(m => m.BodyType, Html.GetEnumSelectList<BodyType>(),
+                   "Select fuel type",
+                   new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group w-75 auto-margin">
+                        <label asp-for="FuelType">Fuel Type</label>
+                        @Html.DropDownListFor(m => m.FuelType, Html.GetEnumSelectList<FuelType>(),
+                  "Select fuel type",
+                  new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-around mt-5">
                 <div class="form-group">
                     <label asp-for="BuyNowPrice"></label>
                     <input asp-for="BuyNowPrice" class="form-control" />
@@ -56,15 +88,16 @@
                     <span asp-validation-for="Step" class="text-danger"></span>
                 </div>
             </div>
+
             <div class="form-group">
-                <label asp-for="Transmission">Transmisson</label>
-                @Html.DropDownListFor(m => m.Transmission, Html.GetEnumSelectList<Transmission>(),
-            "Select transmission",
-            new { @class = "form-control" })
+                <label asp-for="Images"></label>
+                <input asp-for="Images" class="form-control" />
+                <span asp-validation-for="Images" class="text-danger"></span>
             </div>
 
-            @*next => images, extras*@
 
+            @*next => images, extras*@
+            <button type="submit" class="btn btn-info text-uppercase">Submit</button>
 
         </form>
     </div>

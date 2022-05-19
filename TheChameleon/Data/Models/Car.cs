@@ -44,6 +44,12 @@
         [Required]
         public Transmission Transmission { get; set; }
 
+        [Required]
+        public BodyType BodyType { get; set; }
+
+        [Required]
+        public FuelType FuelType { get; set; }
+
         public int? BuyNowPrice { get; set; }
 
         [Required]
