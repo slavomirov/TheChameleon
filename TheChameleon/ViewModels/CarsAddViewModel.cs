@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using TheChameleon.Data.Models;
+using TheChameleon.Enums;
 
 namespace TheChameleon.ViewModels
 {
@@ -27,6 +28,18 @@ namespace TheChameleon.ViewModels
 
         [Required]
         public string Description { get; set; }
+
+        [Required]
+        public string Color { get; set; }
+
+        [Required]
+        public int Doors { get; set; }
+
+        [Required]
+        public int Seats { get; set; }
+
+        [Required]
+        public Transmission Transmission { get; set; }
 
         public int BuyNowPrice { get; set; }
 

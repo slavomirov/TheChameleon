@@ -1,4 +1,5 @@
 ﻿@using TheChameleon.ViewModels
+@using TheChameleon.Enums;
 @model CarsAddViewModel
 
 @{
@@ -9,7 +10,7 @@
     <div class="container align-content-center">
         <h1 style="margin: 2%; text-align: center;">Add Car</h1>
         <form method="post" enctype="multipart/form-data">
-            <div class="d-flex betweeen align-content-center">
+            <div class="d-flex justify-content-around">
                 <div class="form-group">
                     <label asp-for="Make"></label>
                     <input asp-for="Make" class="form-control" />
@@ -37,20 +38,29 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="BuyNowPrice"></label>
-                <input asp-for="BuyNowPrice" class="form-control" />
-                <span asp-validation-for="BuyNowPrice" class="text-danger"></span>
+            <div class="d-flex justify-content-around">
+
+                <div class="form-group">
+                    <label asp-for="BuyNowPrice"></label>
+                    <input asp-for="BuyNowPrice" class="form-control" />
+                    <span asp-validation-for="BuyNowPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartingPrice"></label>
+                    <input asp-for="StartingPrice" class="form-control" />
+                    <span asp-validation-for="StartingPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Step"></label>
+                    <input asp-for="Step" class="form-control" />
+                    <span asp-validation-for="Step" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="StartingPrice"></label>
-                <input asp-for="StartingPrice" class="form-control" />
-                <span asp-validation-for="StartingPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Step"></label>
-                <input asp-for="Step" class="form-control" />
-                <span asp-validation-for="Step" class="text-danger"></span>
+                <label asp-for="Transmission">Transmisson</label>
+                @Html.DropDownListFor(m => m.Transmission, Html.GetEnumSelectList<Transmission>(),
+            "Select transmission",
+            new { @class = "form-control" })
             </div>
 
             @*next => images, extras*@
