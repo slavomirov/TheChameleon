@@ -87,3 +87,10 @@ body {
     margin-bottom: 4px;
 }
 
+.cool-color {
+    background-color: #293244;
+}
+
+.nav-link:hover, a:hover {
+    color: #bfc2c7 !important;
+}
