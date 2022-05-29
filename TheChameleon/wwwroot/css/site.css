@@ -88,9 +88,18 @@ body {
 }
 
 .cool-color {
-    background-color: #293244;
+    background-color: #293244 !important;
 }
 
 .nav-link:hover, a:hover {
     color: #bfc2c7 !important;
+}
+
+.try_header {
+    height: 1500px;
+    /*width: 100vh;*/
+    position: relative;
+    background-image: linear-gradient( rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6) ), url(../images/hero.jpg);
+    background-size: cover;
+    color: #fff;
 }
