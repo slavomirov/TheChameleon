@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light cool-color box-shadow border-bottom mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light cool-color box-shadow @*border-bottom mb-3*@">
             <div class="container">
                 <img src="/images/TheChameleon_Logo.png" width="50">
                 <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">TheChameleon</a>
@@ -21,9 +21,6 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -37,11 +34,12 @@
             </div>
         </nav>
     </header>
+            @RenderBody()
+    @*
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
         </main>
-    </div>
+    </div>*@
 
     <footer class="border-top cool-color footer text-muted">
         <div class="container">
