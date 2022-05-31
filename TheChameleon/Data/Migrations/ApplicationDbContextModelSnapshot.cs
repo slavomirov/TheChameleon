@@ -16,7 +16,7 @@ namespace TheChameleon.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.15")
+                .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -245,8 +245,15 @@ namespace TheChameleon.Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("BuyNowPrice")
+                    b.Property<int>("BodyType")
                         .HasColumnType("int");
+
+                    b.Property<int?>("BuyNowPrice")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -257,6 +264,12 @@ namespace TheChameleon.Data.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Doors")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FuelType")
+                        .HasColumnType("int");
 
                     b.Property<int>("HorsePower")
                         .HasColumnType("int");
@@ -275,10 +288,16 @@ namespace TheChameleon.Data.Migrations
                     b.Property<int>("NextMinimumBid")
                         .HasColumnType("int");
 
+                    b.Property<int>("Seats")
+                        .HasColumnType("int");
+
                     b.Property<int>("StartingPrice")
                         .HasColumnType("int");
 
                     b.Property<int>("Step")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Transmission")
                         .HasColumnType("int");
 
                     b.Property<int>("Year")
@@ -355,11 +374,11 @@ namespace TheChameleon.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CarId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("ItemId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -369,7 +388,7 @@ namespace TheChameleon.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemId");
+                    b.HasIndex("CarId");
 
                     b.HasIndex("UserId");
 
@@ -487,15 +506,15 @@ namespace TheChameleon.Data.Migrations
 
             modelBuilder.Entity("TheChameleon.Data.Models.UserCar", b =>
                 {
-                    b.HasOne("TheChameleon.Data.Models.Car", "Item")
+                    b.HasOne("TheChameleon.Data.Models.Car", "Car")
                         .WithMany()
-                        .HasForeignKey("ItemId");
+                        .HasForeignKey("CarId");
 
                     b.HasOne("TheChameleon.Data.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("Item");
+                    b.Navigation("Car");
 
                     b.Navigation("User");
                 });

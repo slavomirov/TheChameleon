@@ -65,6 +65,7 @@ namespace TheChameleon.ViewModels
         //[Required]
         public ICollection<Extra> Extras { get; set; }
 
+        public string UserId { get; set; }
 
 
     }

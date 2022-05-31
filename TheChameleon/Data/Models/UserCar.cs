@@ -10,8 +10,8 @@
 
         public ApplicationUser User { get; set; }
 
-        public string ItemId { get; set; }
+        public string CarId { get; set; }
 
-        public Car Item { get; set; }
+        public Car Car { get; set; }
     }
 }

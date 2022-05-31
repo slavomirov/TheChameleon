@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TheChameleon.Data;
+using TheChameleon.Services;
 
 namespace TheChameleon
 {
@@ -36,6 +37,9 @@ namespace TheChameleon
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
+
+            //Application services
+            services.AddTransient<CarsService>();
 
             services.Configure<IdentityOptions>(options =>
                 {
